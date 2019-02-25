@@ -9,8 +9,8 @@ class InfoSpider(CrawlSpider):
                   'https://www.jumia.co.ke/phones-tablets/'
                     ]
     rules = (
-        Rule(LinkExtractor(allow=(), restrict_css=('.osh-font-light-arrow-right',)),
+        Rule(LinkExtractor(allow=(), restrict_css=('.item',)),
              callback="parse_item",
-             follow=True),)
+             follow=False),)
     def parse_item(self, response):
         print('Processing..' + response.url)
