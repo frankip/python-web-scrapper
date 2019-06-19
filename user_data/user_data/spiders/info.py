@@ -1,6 +1,8 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 
+from user_data.new_items import another_link
+
 
 class InfoSpider(CrawlSpider):
     name = 'info'
@@ -22,10 +24,10 @@ class InfoSpider(CrawlSpider):
              callback="parse_item",
              follow=True),)
     def parse_item(self, response):
-        import pdb;
-        # pdb.set_trace()
         print('Processing.....' + response.url)
         print("....")
         print("...")
         print("..")
         print(".")
+        new_list = another_link(response.url)
+        print(new_list)
